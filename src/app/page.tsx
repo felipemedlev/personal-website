@@ -10,7 +10,7 @@ const resumeData = {
   phone: "+56 976309980",
   githubUser: "felipemedlev",
   linkedinProfile: "felipe-mediavilla-levinson-95212315b",
-  traditionalResumePath: "/mi-cv",
+  traditionalResumePath: "/Felipe_CV_V2.pdf",
   role: "Data Analyst | Automation Engineer | Full-Stack Developer",
   professionalSummary: "Data Analyst and Automation Engineer with a strong foundation in finance, software development, and data science. Skilled in building ML forecasts, automating processes, and developing full-stack web applications using Django, Next.js, and GCP. Proven track record in deploying data-driven systems that reduce manual workload, improve financial visibility, and enable strategic decision-making. Passionate about solving real-world business problems through elegant, scalable and insightful analytics.",
   technicalSkills: [
@@ -227,8 +227,6 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <header className="min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-gray-900 via-gray-850 to-gray-900 p-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 bg-[url('/grid.svg')]"> {/* Example subtle background pattern */}
-        </div>
         <div className="relative z-10 animate-fadeIn">
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white mb-4">
             {resumeData.name}
@@ -249,9 +247,9 @@ export default function HomePage() {
             <a href={`tel:${resumeData.phone.replace(/\s/g, '')}`} aria-label="Call Me" className="text-gray-400 hover:text-sky-400 transition-colors duration-300 transform hover:scale-110">
               <Phone className="h-8 w-8" />
             </a>
-            <Link href={resumeData.traditionalResumePath} aria-label="View Traditional Resume" className="text-gray-400 hover:text-sky-400 transition-colors duration-300 transform hover:scale-110">
+            <a href={resumeData.traditionalResumePath} target="_blank" rel="noopener noreferrer" aria-label="View Resume PDF" className="text-gray-400 hover:text-sky-400 transition-colors duration-300 transform hover:scale-110">
               <FileText className="h-8 w-8" />
-            </Link>
+            </a>
           </div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-10">
             Welcome to my personal space. I craft data-driven solutions and build engaging digital experiences.
@@ -307,6 +305,33 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Resume PDF Section */}
+      <Section id="resume-pdf" title="Curriculum Vitae" icon={FileText} className="bg-gray-850">
+        <div className="mx-auto max-w-4xl mb-10 text-center">
+          <p className="text-lg text-gray-300 mb-8">
+            You can view my detailed CV below, or download it directly.
+          </p>
+        </div>
+        <div className="bg-gray-800 p-2 md:p-4 rounded-lg shadow-2xl max-w-4xl mx-auto mb-12">
+          <iframe
+            src="/Felipe_CV_V2.pdf"
+            title="Felipe Mediavilla Levinson CV"
+            className="w-full h-[70vh] md:h-[85vh] rounded border border-gray-700"
+            allowFullScreen
+          />
+        </div>
+        <div className="text-center">
+          <a
+            href="/Felipe_CV_V2.pdf"
+            download="Felipe_Mediavilla_Levinson_CV.pdf"
+            className="group inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-lg text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-300 transform hover:scale-105 shadow-lg"
+          >
+            <ArrowDownCircle className="mr-3 h-6 w-6 group-hover:animate-bounceOnce" />
+            Download CV (PDF)
+          </a>
+        </div>
+      </Section>
+
       {/* Contact / Footer */}
       <footer className="bg-gray-950 py-16 text-center">
         <div className="container mx-auto px-6 lg:px-8">
@@ -335,7 +360,7 @@ export default function HomePage() {
             Crafted with <Link href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400">Next.js</Link> & <Link href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400">Tailwind CSS</Link>.
           </p>
            <p className="text-xs text-gray-600 mt-1">
-            <Link href="/mi-cv" className="hover:text-sky-400">View Traditional Resume</Link>
+            <a href="/Felipe_CV_V2.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400">View CV (PDF)</a>
           </p>
         </div>
       </footer>

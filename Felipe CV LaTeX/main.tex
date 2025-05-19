@@ -1,0 +1,172 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.1.4, 27 July 2018) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+% 
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% If you need to pass whatever options to xcolor
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+%% IF YOU ARE USING ACADEMICONS ICONS (Mainly for \orcid BUT ALSO FOR OTHERS LIKE \aiOutlineGoogleScholar):
+%% Add "academicons" option to \documentclass, and compile with XeLaTeX or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
+
+\documentclass[10pt,a4paper]{altacv} % REMOVED ragged2e from class options
+
+%% AltaCV uses the fontawesome and academicon fonts
+%% and packages. 
+%% See texdoc.net/pkg/fontawecome and http://texdoc.net/pkg/academicons for full list of symbols.
+%% 
+%% Compile with LuaLaTeX for best results. If you
+%% want to use XeLaTeX, you may need to install
+%% Academicons.ttf in your operating system's font 
+%% folder.
+
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm} % Adapted from example
+
+% Change the font if you want to.
+
+% If using pdflatex:
+% \usepackage[T1]{fontenc} % REMOVED - altacv handles this for pdflatex
+% \usepackage[utf8]{inputenc} % REMOVED - altacv handles this for pdflatex
+\usepackage[default]{lato} % KEPT - This is your specific font choice for pdflatex
+
+% If using xelatex or lualatex:
+% \setmainfont{Lato}
+
+% Change the colours if you want to
+\definecolor{Navy}{HTML}{000080}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{heading}{Navy}
+\colorlet{accent}{Navy}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey} % Consider \colorlet{body}{SlateGrey} for better readability
+                           
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle} 
+
+\usepackage[colorlinks,urlcolor=accent]{hyperref} 
+
+\usepackage{paracol} % For two-column layout
+\usepackage[document]{ragged2e} % ADDED - To apply ragged right justification, similar to the example
+\usepackage{textcase} % For \MakeTextUppercase
+
+
+\begin{document}
+
+\name{Felipe Mediavilla Levinson}
+\tagline{\small 
+Data Analyst \& Engineer specializing in automation, machine learning, and full-stack development. Experienced in building scalable tools to enhance forecasting, streamline operations, and reduce manual work.}
+\personalinfo{%
+  \location{Santiago, Chile} 
+  \email{frmediavilla@uc.cl}
+  \phone{+56 976309980}
+  \homepage{https://felipemedlev.com} 
+  \github{github.com/felipemedlev}
+}
+
+\makecvheader 
+
+\AtBeginEnvironment{itemize}{\small}
+\columnratio{0.62}
+
+\begin{paracol}{2}
+
+\cvsection{Experience}
+
+\cvevent{Senior Data Analyst | Automation Engineer}{Falabella S.A.}{Aug 2022 -- Present}{Santiago, Chile}
+\begin{itemize}
+\item Reduced \textbf{150+ analyst-hours weekly} by automating manual tasks using Python and SQL.
+\item Built \textbf{ML models for financial forecasting} and cost pass-through analysis.
+\item Created full-stack \textbf{Rebate App} (Next.js + Django), cutting approval time by 40\%.
+\item Developed \textbf{anomaly detection} scripts for early flagging of cost center deviations, reducing financial reporting errors.
+\item Automated SAP client creation by converting SharePoint data into XML inputs readable by SAP.
+\item Built \textbf{KPI dashboards} in Tableau and Looker Studio, consumed by 50+ stakeholders.
+\item Parsed and structured XBRL financial data to enhance regulatory reporting automation.
+\item Deployed internal tools on \textbf{GCP}, ensuring fast, secure access across distributed teams.
+\item Built a \textbf{PDF-to-Excel validator} to check financial reports before CMF submission, reducing regulatory risk from upload errors.
+\item Consolidated sales data from \textbf{25+ transactional tables} into a unified source of truth used organization-wide.
+\end{itemize}
+\divider
+
+\cvevent{Financial Planning Analyst}{Softys S.A.}{Aug 2021 -- Aug 2022}{Santiago, Chile}
+\begin{itemize}
+\item Supported annual budget consolidation and strategic alignment.
+\item Led monthly closings and variance analysis for executive reporting.
+\end{itemize}
+\divider
+
+\cvevent{Industrial Consultant}{TICGAS}{Jul 2021}{Santiago, Chile}
+\begin{itemize}
+\item Built an in-house product costing system and developed a linear optimization model, boosting revenue by 20\% without increasing operational inputs.
+\end{itemize}
+\divider
+
+\cvevent{Underwater Robotics Interface Developer (Intern)}{CoMPAS Lab}{Apr 2021 -- Sep 2021}{Santiago, Chile}
+\begin{itemize}
+\item Designed navigation algorithms and GUI for autonomous robots.
+\end{itemize}
+\divider
+
+\cvevent{Project Management Intern}{SQM}{Dec 2019 -- Mar 2020}{Antofagasta, Chile}
+\begin{itemize}
+\item Created standardized project management protocols to track and reduce cost overruns.
+\item Proposed evaporation control system, later implemented in operations.
+\end{itemize}
+
+\switchcolumn
+
+\cvsection{Education}
+
+\cvevent{Civil Industrial Engineer (with Distinction)}{PUC Chile}{2015 -- 2021}{Santiago, Chile}
+\begin{itemize}
+\item Diploma in Mechanical Engineering; thesis in CFD fire simulations (Python).
+\item TA for “Control of Mechanical Systems” (2 semesters).
+\item Led design teams for \textbf{VSolar} (EV challenge) and \textbf{RobotX} (autonomous boats).
+\end{itemize}
+
+\cvsection{Side Projects}
+
+\cvevent{Sille | \normalfont{\textit{Full-Stack Developer (Solo Startup)}}}{}{2024}{}
+\begin{itemize}
+\item Built e-commerce platform (React/Expo + Django) for niche perfumery.
+\item Integrated \textbf{ML recommender system} for personalized product suggestions.
+\item Architected API, data models, and frontend onboarding flow.
+\item \faGlobe\hspace{0.5em} \href{https://sille.cl}{http://sille.cl}
+\end{itemize}
+\divider
+
+\cvevent{Ariesanalytics.ai | \normalfont{\textit{Frontend Developer}}}{}{2024}{} 
+\begin{itemize}
+\item Created company site using \textbf{Next.js} with responsive UX.
+\item \faGithub\hspace{0.5em} \href{https://github.com/felipemedlev/ariesdata}{GitHub: ariesdata}
+\end{itemize}
+
+\cvsection{Technical Skills}
+
+\cvtag{Python} \cvtag{SQL} \cvtag{Git} \cvtag{Bash} \cvtag{Excel} \cvtag{PowerApps}
+ \cvtag{Django} \cvtag{React} \cvtag{Next.js} \cvtag{Pandas} \cvtag{Scikit-learn} \cvtag{NumPy}
+\cvtag{GCP} \cvtag{PostgreSQL} \cvtag{Tableau} \cvtag{Looker}
+
+\cvsection{Languages}
+\cvskill{Spanish (Native)}{5}
+\cvskill{English (C1)}{4}
+\cvskill{Hebrew (Basic)}{2}
+\cvskill{Portuguese (Basic)}{1}
+
+\end{paracol}
+
+\end{document}
