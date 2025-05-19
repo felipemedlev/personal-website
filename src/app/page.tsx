@@ -1,5 +1,5 @@
 "use client";
-import { Mail, Phone, Github, Linkedin, UserCircle, Wrench, Briefcase, Lightbulb, GraduationCap, ChevronRight, ExternalLink, Code, Database, Cloud, Users, Award, Zap, Eye, MessageSquare, ArrowDownCircle } from 'lucide-react';
+import { Mail, Phone, Github, Linkedin, UserCircle, Wrench, Briefcase, Lightbulb, GraduationCap, ChevronRight, ExternalLink, Code, Database, Cloud, Users, Award, Zap, Eye, MessageSquare, ArrowDownCircle, FileText } from 'lucide-react';
 import Link from 'next/link';
 
 // Data from mi-cv/page.tsx - adapted for this page
@@ -10,6 +10,7 @@ const resumeData = {
   phone: "+56 976309980",
   githubUser: "felipemedlev",
   linkedinProfile: "felipe-mediavilla-levinson-95212315b",
+  traditionalResumePath: "/mi-cv",
   role: "Data Analyst | Automation Engineer | Full-Stack Developer",
   professionalSummary: "Data Analyst and Automation Engineer with a strong foundation in finance, software development, and data science. Skilled in building ML forecasts, automating processes, and developing full-stack web applications using Django, Next.js, and GCP. Proven track record in deploying data-driven systems that reduce manual workload, improve financial visibility, and enable strategic decision-making. Passionate about solving real-world business problems through elegant, scalable and insightful analytics.",
   technicalSkills: [
@@ -87,14 +88,15 @@ const resumeData = {
   ],
   independentProjects: [
     {
-      name: "Sille.cl | Full-Stack Developer & Product Designer (Solo Startup Project)",
+      name: "Sille | Full-Stack Developer & Product Designer (Solo Startup Project)",
       year: "2024",
       description: [
         "Designed and built a personalized e-commerce platform for niche perfumery using <strong>React (Expo)</strong> and <strong>Django</strong>.",
         "Integrated a <strong>machine learning recommender system</strong> to suggest products based on user profiles.",
         "Architected backend API, data models, and user onboarding flow; frontend hosted for demo access.",
       ],
-      githubLink: "https://github.com/felipemedlev/sille",
+      githubLink: "https://sille.cl",
+      linkText: "Visit Website",
       icon: Lightbulb
     },
     {
@@ -167,7 +169,7 @@ const ExperienceItem: React.FC<typeof resumeData.professionalExperience[0] & {ic
   </div>
 );
 
-const ProjectCard: React.FC<typeof resumeData.independentProjects[0]> = ({ name, year, description, githubLink, icon: Icon }) => (
+const ProjectCard: React.FC<typeof resumeData.independentProjects[0]> = ({ name, year, description, githubLink, linkText, icon: Icon }) => (
   <div className="bg-gray-800 p-6 rounded-xl shadow-2xl hover:shadow-sky-500/30 transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
     <div className="flex items-center mb-4">
       <Icon className="h-8 w-8 text-sky-400 mr-4" />
@@ -190,7 +192,7 @@ const ProjectCard: React.FC<typeof resumeData.independentProjects[0]> = ({ name,
         rel="noopener noreferrer"
         className="mt-auto inline-flex items-center text-sm text-sky-400 hover:text-sky-300 hover:underline transition-colors duration-300 group"
       >
-        View on GitHub <ExternalLink className="h-4 w-4 ml-1.5 group-hover:translate-x-1 transition-transform duration-300" />
+        {linkText || "View on GitHub"} <ExternalLink className="h-4 w-4 ml-1.5 group-hover:translate-x-1 transition-transform duration-300" />
       </a>
     )}
   </div>
@@ -247,6 +249,9 @@ export default function HomePage() {
             <a href={`tel:${resumeData.phone.replace(/\s/g, '')}`} aria-label="Call Me" className="text-gray-400 hover:text-sky-400 transition-colors duration-300 transform hover:scale-110">
               <Phone className="h-8 w-8" />
             </a>
+            <Link href={resumeData.traditionalResumePath} aria-label="View Traditional Resume" className="text-gray-400 hover:text-sky-400 transition-colors duration-300 transform hover:scale-110">
+              <FileText className="h-8 w-8" />
+            </Link>
           </div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-10">
             Welcome to my personal space. I craft data-driven solutions and build engaging digital experiences.
@@ -285,7 +290,7 @@ export default function HomePage() {
       </Section>
 
       {/* Selected Projects Section */}
-      <Section id="projects" title="Signature Projects" icon={Lightbulb} className="bg-gray-850">
+      <Section id="projects" title="Independent Projects" icon={Lightbulb} className="bg-gray-850">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {resumeData.independentProjects.map((project, index) => (
             <ProjectCard key={index} {...project} icon={project.icon || Lightbulb} />

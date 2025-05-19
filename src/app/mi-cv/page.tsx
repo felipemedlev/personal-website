@@ -1,12 +1,13 @@
-import { MapPin, Mail, Phone, Github, Linkedin, UserCircle, Wrench, Briefcase, Lightbulb, GraduationCap, ChevronRight, ExternalLink } from 'lucide-react';
+"use client";
+import { MapPin, Mail, Phone, Github, Linkedin, UserCircle, Wrench, Briefcase, Lightbulb, GraduationCap, ChevronRight, ExternalLink, FileText } from 'lucide-react';
 
 const resumeData = {
   name: "Felipe Mediavilla Levinson",
   location: "Santiago, Chile",
   email: "frmediavilla@uc.cl",
   phone: "+56 976309980",
-  githubUser: "felipemedlev", // Main GitHub username from resume header
-  linkedinProfile: "felipe-mediavilla-levinson-95212315b", // Placeholder, please update this
+  githubUser: "felipemedlev",
+  linkedinProfile: "felipe-mediavilla-levinson-95212315b",
   role: "Data Analyst | Automation Engineer | Full-Stack Developer",
   professionalSummary: "Data Analyst and Automation Engineer with a strong foundation in finance, software development, and data science. Skilled in building ML forecasts, automating processes, and developing full-stack web applications using Django, Next.js, and GCP. Proven track record in deploying data-driven systems that reduce manual workload, improve financial visibility, and enable strategic decision-making. Passionate about solving real-world business problems through elegant, scalable and insightful analytics.",
   technicalSkills: [
@@ -54,6 +55,27 @@ const resumeData = {
         "Built an in-house product costing system and developed a linear optimization model, boosting revenue by 20% without increasing operational inputs.",
         "Proposed and mapped out new factory layout using lean manufacturing principles."
       ]
+    },
+    {
+      name: "Underwater Robotics Interface Developer (Intern)",
+      company: "CoMPAS Lab",
+      location: "Santiago, Chile",
+      dates: "Apr 2021 – Sep 2021",
+      responsibilities: [
+        "Designed hardware components and developed navigation control algorithms.",
+        "Built a Python GUI to visualize real-time sensor data and send commands to the robots.",
+        "Supported team’s participation in national robotics demonstrations."
+      ]
+    },
+    {
+      name: "Project Management Intern",
+      company: "SQM",
+      location: "Antofagasta, Chile",
+      dates: "Dec 2019 – Mar 2020",
+      responsibilities: [
+        "Created standardized project management protocols to track and reduce cost overruns.",
+        "Researched and proposed a solution to minimize evaporation in mining ponds, later implemented in operations."
+      ]
     }
   ],
   selectedProjects: [
@@ -66,29 +88,8 @@ const resumeData = {
         "Architected backend API, data models, and user onboarding flow; frontend hosted for demo access.",
         "Applied data-driven UX principles to improve potential user satisfaction and conversion."
       ],
-      githubLink: "https://github.com/felipemediavilla/sille"
+      githubLink: "https://sille.cl"
     },
-    {
-      name: "Underwater Robotics Interface Developer (Intern)",
-      company: "CoMPAS Lab",
-      location: "Santiago, Chile",
-      dates: "Apr 2021 – Sep 2021",
-      description: [
-        "Designed hardware components and developed navigation control algorithms.",
-        "Built a Python GUI to visualize real-time sensor data and send commands to the robots.",
-        "Supported team’s participation in national robotics demonstrations."
-      ]
-    },
-    {
-      name: "Project Management Intern",
-      company: "SQM",
-      location: "Antofagasta, Chile",
-      dates: "Dec 2019 – Mar 2020",
-      description: [
-        "Created standardized project management protocols to track and reduce cost overruns.",
-        "Researched and proposed a solution to minimize evaporation in mining ponds, later implemented in operations."
-      ]
-    }
   ],
   education: [
     {
@@ -120,9 +121,23 @@ const ListItem: React.FC<{ text: string }> = ({ text }) => (
 
 
 export default function ResumePage() {
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800 font-[family-name:var(--font-geist-sans)] py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-8 sm:p-12">
+      <div id="resume-content" className="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-8 sm:p-12">
+
+        <div className="print-hide mb-8 text-right">
+          <button
+            onClick={handlePrint}
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+          >
+            <FileText className="h-5 w-5 mr-2" />
+            Download PDF
+          </button>
+        </div>
 
         <header className="text-center mb-10">
           <h1 className="text-5xl font-bold text-gray-800 mb-2">{resumeData.name}</h1>
@@ -182,10 +197,7 @@ export default function ResumePage() {
           {resumeData.selectedProjects.map((project, index) => (
             <div key={index} className="mb-6">
               <h3 className="text-xl font-semibold text-gray-800">{project.name}</h3>
-              {project.company && (
-                <p className="text-md text-indigo-500 font-medium">{project.company} — {project.location}</p>
-              )}
-              <p className="text-sm text-gray-500 mb-2">{project.year || project.dates}</p>
+              <p className="text-sm text-gray-500 mb-2">{project.year}</p>
               <ul className="space-y-1">
                 {project.description.map((item, idx) => (
                   <ListItem key={idx} text={item} />
@@ -228,6 +240,34 @@ export default function ResumePage() {
         </footer>
 
       </div>
+      <style jsx global>{`
+        @media print {
+          body * {
+            visibility: hidden;
+          }
+          #resume-content, #resume-content * {
+            visibility: visible;
+          }
+          #resume-content {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+          }
+          .print-hide {
+            display: none !important;
+          }
+           /* Ensure backgrounds are printed if browser settings allow */
+          html {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+        }
+      `}</style>
     </div>
   );
 }
