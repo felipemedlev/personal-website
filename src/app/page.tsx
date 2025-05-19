@@ -60,27 +60,13 @@ const resumeData = {
         "Proposed and mapped out new factory layout using lean manufacturing principles."
       ],
       icon: Zap // Using Zap for optimization/consulting
-    }
-  ],
-  selectedProjects: [
-    {
-      name: "Sille.cl | Full-Stack Developer & Product Designer (Solo Startup Project)",
-      year: "2024",
-      description: [
-        "Designed and built a personalized e-commerce platform for niche perfumery using <strong>React (Expo)</strong> and <strong>Django</strong>.",
-        "Integrated a <strong>machine learning recommender system</strong> to suggest products based on user profiles.",
-        "Architected backend API, data models, and user onboarding flow; frontend hosted for demo access.",
-        "Applied data-driven UX principles to improve potential user satisfaction and conversion."
-      ],
-      githubLink: "https://github.com/felipemediavilla/sille",
-      icon: Lightbulb
     },
     {
       name: "Underwater Robotics Interface Developer (Intern)",
       company: "CoMPAS Lab",
       location: "Santiago, Chile",
       dates: "Apr 2021 – Sep 2021",
-      description: [
+      responsibilities: [
         "Designed hardware components and developed navigation control algorithms.",
         "Built a Python GUI to visualize real-time sensor data and send commands to the robots.",
         "Supported team’s participation in national robotics demonstrations."
@@ -92,12 +78,35 @@ const resumeData = {
       company: "SQM",
       location: "Antofagasta, Chile",
       dates: "Dec 2019 – Mar 2020",
-      description: [
+      responsibilities: [
         "Created standardized project management protocols to track and reduce cost overruns.",
         "Researched and proposed a solution to minimize evaporation in mining ponds, later implemented in operations."
       ],
       icon: Users
     }
+  ],
+  independentProjects: [
+    {
+      name: "Sille.cl | Full-Stack Developer & Product Designer (Solo Startup Project)",
+      year: "2024",
+      description: [
+        "Designed and built a personalized e-commerce platform for niche perfumery using <strong>React (Expo)</strong> and <strong>Django</strong>.",
+        "Integrated a <strong>machine learning recommender system</strong> to suggest products based on user profiles.",
+        "Architected backend API, data models, and user onboarding flow; frontend hosted for demo access.",
+      ],
+      githubLink: "https://github.com/felipemedlev/sille",
+      icon: Lightbulb
+    },
+    {
+      name: "Ariesanalytics.ai | Frontend Developer",
+      year: "2025",
+      description: [
+        "Designed and built a website for an AI consulting startup using <strong>Next.js</strong>.",
+      ],
+      githubLink: "https://github.com/felipemedlev/ariesdata",
+      icon: Lightbulb
+    },
+
   ],
   education: [
     {
@@ -158,14 +167,14 @@ const ExperienceItem: React.FC<typeof resumeData.professionalExperience[0] & {ic
   </div>
 );
 
-const ProjectCard: React.FC<typeof resumeData.selectedProjects[0] & {icon: React.ElementType}> = ({ name, year, dates, description, githubLink, company, location, icon: Icon }) => (
+const ProjectCard: React.FC<typeof resumeData.independentProjects[0]> = ({ name, year, description, githubLink, icon: Icon }) => (
   <div className="bg-gray-800 p-6 rounded-xl shadow-2xl hover:shadow-sky-500/30 transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
     <div className="flex items-center mb-4">
       <Icon className="h-8 w-8 text-sky-400 mr-4" />
       <h3 className="text-xl font-semibold text-white">{name}</h3>
     </div>
-    {company && <p className="text-sm text-sky-500 mb-1">{company} — {location}</p>}
-    <p className="text-xs text-gray-500 mb-3">{year || dates}</p>
+    {/* 'company', 'location', and 'dates' are not properties of independentProjects items */}
+    <p className="text-xs text-gray-500 mb-3">{year}</p>
     <ul className="space-y-1.5 mb-4 flex-grow">
       {description.map((item, idx) => (
         <li key={idx} className="text-gray-400 text-sm flex items-start">
@@ -277,8 +286,8 @@ export default function HomePage() {
 
       {/* Selected Projects Section */}
       <Section id="projects" title="Signature Projects" icon={Lightbulb} className="bg-gray-850">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {resumeData.selectedProjects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {resumeData.independentProjects.map((project, index) => (
             <ProjectCard key={index} {...project} icon={project.icon || Lightbulb} />
           ))}
         </div>
