@@ -1,5 +1,5 @@
 "use client";
-import { MapPin, Mail, Phone, Github, Linkedin, UserCircle, Wrench, Briefcase, Lightbulb, GraduationCap, ChevronRight, ExternalLink, Code, Database, Cloud, Users, Award, Zap, Eye, MessageSquare, ArrowDownCircle } from 'lucide-react';
+import { Mail, Phone, Github, Linkedin, UserCircle, Wrench, Briefcase, Lightbulb, GraduationCap, ChevronRight, ExternalLink, Code, Database, Cloud, Users, Award, Zap, Eye, MessageSquare, ArrowDownCircle } from 'lucide-react';
 import Link from 'next/link';
 
 // Data from mi-cv/page.tsx - adapted for this page
