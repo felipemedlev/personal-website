@@ -22,7 +22,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 font-[family-name:var(--font-geist-sans)] selection:bg-sky-500 selection:text-white">
 
-      {/* Hero Section */}
+      {/* Hero Section  */}
       <header className="min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-gray-900 via-gray-850 to-gray-900 p-6 relative overflow-hidden">
         <div className="relative z-10 animate-fadeIn">
           <img
