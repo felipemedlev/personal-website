@@ -1,4 +1,4 @@
-import { Mail, Phone, Github, Linkedin, UserCircle, Wrench, Briefcase, Lightbulb, GraduationCap, Code, Database, Cloud, Users, Award, Zap, Eye, MessageSquare } from 'lucide-react';
+import { Briefcase, Lightbulb, GraduationCap, Code, Database, Cloud, Users, Award, Zap, Eye, MessageSquare } from 'lucide-react';
 
 export const resumeData = {
   name: "Felipe Mediavilla Levinson",
