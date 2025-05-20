@@ -109,7 +109,7 @@ export const resumeData = {
   ],
   education: [
     {
-      degree: "Civil Industrial Engineer (with Distinction)",
+      degree: "B.Sc in Engineering, Mechanical & Industrial Engineering",
       university: "Pontificia Universidad Católica de Chile",
       dates: "2015 – 2021",
       details: [
