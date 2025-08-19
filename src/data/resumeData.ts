@@ -6,10 +6,10 @@ export const resumeData = {
   email: "frmediavilla@uc.cl",
   phone: "+56 976309980",
   githubUser: "felipemedlev",
-  linkedinProfile: "felipe-mediavilla-levinson-95212315b",
+  linkedinProfile: "felipemediavilla",
   traditionalResumePath: "/Felipe_CV_V2.pdf",
-  role: "Data Analyst | Automation Engineer | Full-Stack Developer",
-  professionalSummary: "Data Analyst and Automation Engineer with a strong foundation in finance, software development, and data science. Skilled in building ML forecasts, automating processes, and developing full-stack web applications using Django, Next.js, and GCP. Proven track record in deploying data-driven systems that reduce manual workload, improve financial visibility, and enable strategic decision-making. Passionate about solving real-world business problems through elegant, scalable and insightful analytics.",
+  role: "Data Scientist | Automation Engineer",
+  professionalSummary: "Data Scientist and Automation Engineer with a strong foundation in finance, software development, and data science. Skilled in building ML forecasts, automating processes, and developing full-stack web applications using Django, Next.js, and GCP. Proven track record in deploying data-driven systems that reduce manual workload, improve financial visibility, and enable strategic decision-making. Passionate about solving real-world business problems through elegant, scalable and insightful analytics.",
   technicalSkills: [
     { category: "Programming Languages & Tools", skills: "Python, SQL, Git, REST APIs, Bash, Excel, PowerApps, Tableau, Looker Studio", icon: Code },
     { category: "Frameworks & Libraries", skills: "Django, React (Native & Web), Next.js, Pandas, Scikit-learn, NumPy", icon: Zap },
@@ -19,7 +19,7 @@ export const resumeData = {
   ],
   professionalExperience: [
     {
-      title: "Senior Data Analyst | Automation Engineer",
+      title: "Data Scientist | Automation Engineer",
       company: "Falabella S.A.",
       location: "Santiago, Chile",
       dates: "Aug 2022 – Present",
@@ -36,7 +36,7 @@ export const resumeData = {
       icon: Briefcase
     },
     {
-      title: "Financial Planning Analyst",
+      title: "Financial Analyst",
       company: "Softys S.A.",
       location: "Santiago, Chile",
       dates: "Aug 2021 – Aug 2022",
